@@ -31,6 +31,10 @@ function AuthForm() {
     setIsLogin((prevState) => !prevState);
   }
 
+  const signInWithGithub = async () => {
+    await signIn("github");
+  };
+
   async function submitHandler(event) {
     event.preventDefault();
 
@@ -94,6 +98,7 @@ function AuthForm() {
           </button>
         </div>
       </form>
+      <button onClick={signInWithGithub}>Auth with GitHub</button>
     </section>
   );
 }

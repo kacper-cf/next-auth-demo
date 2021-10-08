@@ -1,13 +1,13 @@
 import { getSession } from "next-auth/client";
 import UserProfile from "../components/profile/user-profile";
 
-function ProfilePage() {
-  return <UserProfile />;
+function ProfilePage({ user }) {
+  return <UserProfile email={user.email} name={user.name} />;
 }
 
 export const getServerSideProps = async (context) => {
   const session = await getSession({ req: context.req });
-  console.log("serverSideProps");
+
   if (!session) {
     // return {
     //   notFound: true,
@@ -23,7 +23,7 @@ export const getServerSideProps = async (context) => {
 
   return {
     props: {
-      session,
+      user: session.user,
     },
   };
 };

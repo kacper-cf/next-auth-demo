@@ -35,5 +35,10 @@ export default NextAuth({
         return { email: user.email };
       },
     }),
+    Providers.GitHub({
+      clientId: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    }),
   ],
+  database: process.env.MONGO_URL,
 });
