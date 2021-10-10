@@ -32,7 +32,7 @@ function AuthForm() {
   }
 
   const signInWithGithub = async () => {
-    await signIn("github");
+    await signIn("github", { redirect: false });
   };
 
   async function submitHandler(event) {

@@ -6,6 +6,7 @@ import { connectToDatabase } from "../../../lib/db";
 export default NextAuth({
   session: {
     jwt: true,
+    signingKey: "someSecret",
   },
   providers: [
     Providers.Credentials({
